@@ -1,12 +1,11 @@
 <!doctype html>
 <?php
  session_start();
-/*if(!$_SESSION['username'])  
+if(!$_SESSION['username'])  
 {  
   
     header("Location: login.php");//redirect to login page to secure the welcome page without login access.  
-}  */
-//error_reporting(E_ERROR | E_PARSE);
+}  
 ?>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![ENDif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![ENDif]-->
@@ -215,14 +214,17 @@ function preview_images()
 		</div><!--/header-middle-->
 	
 	</header><!--/header-->
-	
+	        
+ 
+  
+    
 
   <div class="container">
   
 	<div style = "margin-left:150px; margin-right:-430px" class="row">
        
         <div class="col-md-7">
-<form action="" method="post" id="fileForm" role="form" onsubmit="" enctype="multipart/form-data">
+<form action="after_post_add.html" method="post" id="fileForm" role="form" onsubmit="" enctype="multipart/form-data">
 <div class="form-group">
     <label for="exampleFormControlSelect1">Vehicle Catagory</label>
     <select class="form-control" name="catagory">
@@ -235,7 +237,10 @@ function preview_images()
       <option>Push Cycles</option>
           <option>Tractors</option>
             <option>Boats</option>
+            
         
+      
+      
     </select>
   </div>
 <div class="form-group">
@@ -243,7 +248,7 @@ function preview_images()
 <div class="row">
  
   <div class="col-md-12">
-      <input type="file" class="form-control" id="images" name="img[]" onchange="preview_images();" multiple="multiple"/>
+      <input type="file" class="form-control" id="images" name="image" onchange="preview_images();" />
   </div>
   <div class="col-md-6">
      
@@ -269,7 +274,7 @@ function preview_images()
   </div>
   <div class="form-group">
     <label for="exampleInputmodel">model year</label>
-    <input onkeypress='validate(event)'  type="text" class="form-control" name="model_year" aria-describedby="emailHelp" placeholder="model year">
+    <input type="text" class="form-control" name="model_year" aria-describedby="emailHelp" placeholder="model year">
     
   </div>
   <div class="form-group">
@@ -324,43 +329,6 @@ function preview_images()
     <label for="exampleInputPassword1">Phone number to display</label>
     <input maxlength="10" type="text" onkeypress='validate(event)' class="form-control" name="phone" placeholder="Phone">
   </div>
-  
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">District</label>
-    <select class="form-control" name="district" placeholder="district">
-      <option>Ampara</option>
-      <option>Anuradhapura</option>
-      <option>Polonnaruwa</option>
-      <option>Batticaloa</option>
-      <option>Hambantota</option>
-      <option>Kalutara</option>
-      <option>Kandy</option>
-      <option>Mannar</option>
-      <option>Matale</option>
-      <option>Matara</option>
-      <option>Monaragala</option>
-      <option>Puttalam</option>
-      <option>Ratnapura</option>
-      <option>Trincomalee</option>
-      <option>Vavuniya</option>
-      <option>Colombo</option>
-      <option>Galle</option>
-      <option>Kegalle</option>
-      <option>Kilinochchi</option>
-      <option>Mullaitivu</option>
-      <option>Badulla</option>
-      <option>Gampaha</option>
-      <option>Kurunegala</option>
-      
-      
-    </select>
-  </div>
-  
-  <div class="form-group">
-    <label for="exampleInputmodel">Location</label>
-    <input type="text" class="form-control" name="location" aria-describedby="emailHelp" placeholder="location">
-    
-  </div>
    
    <div class="form-group">
        <input class="btn btn-success" type="submit" name="submit" value="POST THE ADD">
@@ -376,68 +344,50 @@ function preview_images()
       </div>
     </div>
     
-<?php
-        include('dbconnection.php');                
+    <?php
+
+        include('dbconnection.php');
+                
            if(isset($_POST['submit'])){
-                $_POST['catagory'];
-                $uname = $_SESSION['username'];
+               $uname = $_SESSION['username'];
                 $brand = $_POST['brand'];
                 $model = $_POST['model'];
                 $model_year = $_POST['model_year'];
                 $condition = $_POST['condition'];
                 $mileage = $_POST['mileage'];
                 $transmission = $_POST['transmission'];
-                $fuel_type = $_POST['fuel_type'];
-                $capacity = $_POST['capacity'];
+                $fuel_type= $_POST['fuel_type'];
+                $capacity= $_POST['capacity'];
                 $discription = $_POST['discription'];
                 $price = $_POST['price'];
                 $phone = $_POST['phone'];
-                $district = $_POST['district'];
-                $location = $_POST['location'];
-               
                               
-                $result = mysqli_query($connection,"SELECT id FROM user WHERE username='$uname'");
+
+                $result = mysqli_query($connection,"SELECT id FROM user WHERE username=$uname");
                 $row = mysqli_fetch_assoc($result);
                 $id = $row['id'];
-                    
                
-                  
-               $today = date('Y-m-d'); 
-               
-               
-$query = "INSERT INTO advertisement VALUES(NULL,$id,'$brand','$model','$model_year','$condition','$mileage','$transmission','$fuel_type', '$capacity','$discription','$price','$phone','$district','$location','$today')";
-   
-$run_query = mysqli_query($connection,$query);
-               
- $result1 = mysqli_query($connection,"SELECT MAX(aid) FROM advertisement");
-                $roww = mysqli_fetch_row($result1);
-                $idd = $roww[0];
-                              
-                $filename = $_FILES['img']['name'];
-                $tmpname = $_FILES['img']['tmp_name'];
-                $filetype = $_FILES['img']['type']; 
-                for($i=0;$i<=count($tmpname)-1;$i++){
-                    
-                    $name = addslashes($filename[$i]);
-                    $tmp = addslashes(file_get_contents($tmpname[$i]));
-                    
-                    mysqli_query($connection,"INSERT INTO img VALUES(NULL,$idd,'$name','$tmp')");
-                    
-                }
+                $imageName = mysqli_real_escape_string($_FILES["image"]["name"]);
+               $imageData = mysqli_real_escape_string(file_get_contents($_FILES["image"]["tmp_name"]));
+                $imageType = mysqli_real_escape_string($_FILES["image"]["type"]);
+               if(substr($imageType,0,5)=="image"){
+                  mysqli_query($connection,"INSERT INTO `img` VALUES(NULL,'$id','$imageName','$imageData')");
+                   
+               }else{
+                   
+                   "only images are allowed";
+               }
+                                 
               
-if($run_query){
-    echo '<script>';
-    echo 'alert("Successfully posted")';
-    echo '</script>';
-}
-
+$query = "INSERT INTO `advertisement` (`aid`, `uid`, `brand`, `model`, `model_year`, `vehicle_condition`, `Mileage`, `transmission`, `fuel_type`, `engine_capacity`, `discription`, `price`, `phone`) VALUES (NULL, '$id', '$brand', '$model', '$model_year', '$condition', '$mileage', '$transmission', '$fuel_type', '$capacity', '$discription', '$price', '$phone')";
+   
+ mysqli_query($connection,$query);
     
-        
+        mysqli_close($connection);
          }
                 
-     mysqli_close($connection);          
-?>
-    
+               
+  ?>
     
 
     

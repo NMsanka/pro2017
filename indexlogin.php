@@ -39,7 +39,14 @@ if(!$_SESSION['username'])
 <script src="jsmaps/jsmaps-panzoom.js" type="text/javascript"></script>
 <script src="jsmaps/jsmaps.min.js" type="text/javascript"></script>
 <script src="maps/world.js" type="text/javascript"></script>
+<style>
+    #border{
+        border:1px solid black;
+    }    
+</style>
+
 </head><!--/head-->
+
 
 <body>
 	<header id="header"><!--header-->
@@ -80,7 +87,7 @@ if(!$_SESSION['username'])
                                 </li>
 								 <li><button type="button" class="btn btn-default">GO</button></li>
    
-								<li>  <button type="button" class="btn btn-success">Post Your Add</button></li>
+								<li>  <button type="button" class="btn btn-success" onclick="location.href='postadd.php';">Post Your Add</button></li>
 								<li><h4 style="color:blue">Welcome <?php echo $_SESSION['username']?></h4></li>
 								<li> <button type="button" class="btn btn-warning" onclick="location.href='logout.php';">Logout</button></li>
 								
@@ -107,39 +114,49 @@ if(!$_SESSION['username'])
 						<div class="carousel-inner">
 							<div class="item active">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free E-Commerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
+									<h1><span>Y</span>anna gaman</h1>
+									<h2>Buying and Selling </h2>
+									<p>the best automobile marketplace in Sri Lanka </p>
+									<button type="button" class="btn btn-default get">Post Your Add</button>
 								</div>
 								<div class="col-sm-6">
-									<img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
-									<img src="images/home/pricing.png"  class="pricing" alt="" />
+									<img src="images/vehicle/image4.jpg" class="girl img-responsive" alt="" />
+									
 								</div>
 							</div>
 							<div class="item">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>100% Responsive Design</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
+									<h1><span>Y</span>anna gaman</h1>
+									<h2>Buying and Selling  </h2>
+									<p>the best automobile marketplace in Sri Lanka </p>
+									<button type="button" class="btn btn-default get">Post Your Add</button>
 								</div>
 								<div class="col-sm-6">
-									<img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
-									<img src="images/home/pricing.png"  class="pricing" alt="" />
+									<img src="images/vehicle/image5.jpg" class="girl img-responsive" alt="" />
 								</div>
 							</div>
 							
 							<div class="item">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free Ecommerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
+									<h1><span>Y</span>anna gaman</h1>
+									<h2>Buying and Selling</h2>
+									<p>the best automobile marketplace in Sri Lanka </p>
+									<button type="button" class="btn btn-default get">Post Your Add</button>
 								</div>
 								<div class="col-sm-6">
-									<img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
-									<img src="images/home/pricing.png" class="pricing" alt="" />
+									<img src="images/vehicle/image7.jpg" class="girl img-responsive" alt="" />
+								</div>
+							</div>
+							
+							<div class="item">
+								<div class="col-sm-6">
+									<h1><span>Y</span>anna gaman</h1>
+									<h2>Buying and Selling</h2>
+									<p>the best automobile marketplace in Sri Lanka </p>
+									<button type="button" class="btn btn-default get">Post Your Add</button>
+								</div>
+								<div class="col-sm-6">
+									<img src="images/vehicle/image9.png" class="girl img-responsive" alt="" />
 								</div>
 							</div>
 							
@@ -165,223 +182,96 @@ if(!$_SESSION['username'])
 					<div class="left-sidebar">
 						<h2>Category</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
-														
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Kids</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Fashion</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Households</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Interiors</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Clothing</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Bags</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Shoes</a></h4>
-								</div>
-							</div>
+                            <button class="btn btn-primary btn-block">Brand New Vehicles</button><br>
+                            <button class="btn btn-primary btn-block">Used Vehicles</button>
+							
 						</div><!--/category-products-->
 					
-						<div class="brands_products"><!--brands_products-->
-							<h2>Brands</h2>
-							<div class="brands-name">
-								<ul class="nav nav-pills nav-stacked">
-									<li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
-									<li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-									<li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
-									<li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
-									<li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
-									<li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
-									<li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
-								</ul>
-							</div>
-						</div><!--/brands_products-->
 						
-						
-						<div class="shipping text-center"><!--shipping-->
-							<img src="images/home/shipping.jpg" alt="" />
-						</div><!--/shipping-->
+																		
 					
 					</div>
 				</div>
-		
+		        
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Features Items</h2>
+						<h2 class="title text-center">District</h2>
 								
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<img src="images/home/product1.jpg" alt="" />
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-										<div class="product-overlay">
-											<div class="overlay-content">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-										</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>-->
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product2.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>-->
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product3.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product4.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-									<img src="images/home/new.png" class="new" alt="" />
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product5.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-									<img src="images/home/sale.png" class="new" alt="" />
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product6.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
+						    <table cellpadding="0.05">
+						    <tr>
+						        <td><div class="brands-name">
+						        
+								<ul class="nav nav-pills nav-stacked">
+									<li><a href="#">Ampara</a></li>
+									<li><a href="#">Anuradhapura</a></li>
+								    <li><a href="#">Polonnaruwa</a></li>
+									<li><a href="#">Batticaloa</a></li>
+									
+									
+								</ul>
+							</div></td>
+                            
+						        <td><div class="brands-name">
+								<ul class="nav nav-pills nav-stacked">
+									<li><a href="#">Hambantota</a></li>
+									<li><a href="#">Jaffna</a></li>
+									<li><a href="#">Kalutara</a></li>
+									<li><a href="#">Kandy</a></li>
+									
+									
+								</ul>
+							</div></td>
+                              
+						          <td><div class="brands-name">
+								<ul class="nav nav-pills nav-stacked">
+									<li><a href="#">Mannar</a></li>
+									<li><a href="#">Matale</a></li>
+									<li><a href="#">Matara</a></li>
+									<li><a href="#">Monaragala</a></li>
+									
+									
+								</ul>
+							</div></td>
+                                
+						            <td><div class="brands-name">
+								<ul class="nav nav-pills nav-stacked">
+									<li><a href="#">Puttalam</a></li>
+									<li><a href="#">Ratnapura</a></li>
+									<li><a href="#">Trincomalee</a></li>
+									<li><a href="#">Vavuniya</a></li>
+									
+									
+								</ul>
+							</div></td>
+                       
+                                   
+						            <td><div class="brands-name">
+								<ul class="nav nav-pills nav-stacked">
+									<li><a href="#">Colombo</a></li>
+									<li><a href="#">Galle</a></li>
+									<li><a href="#">Kegalle</a></li>
+									<li><a href="#">Kilinochchi</a></li>
+									
+									
+								</ul>
+							</div></td>
+                                   
+						            <td><div class="brands-name">
+								<ul class="nav nav-pills nav-stacked">
+									<li><a href="#">Mullaitivu</a></li>
+									<li><a href="#">Badulla</a></li>
+									<li><a href="#">Gampaha</a></li>
+									<li><a href="#">Kurunegala</a></li>
+									
+								</ul>
+							</div></td>
+                        
+                               
+						    </tr>
+							
+						    
+                        </table>
+						
 						
 					</div><!--features_items-->
 					
@@ -389,10 +279,10 @@ if(!$_SESSION['username'])
 						
 					
 				</div>
+                
 			</div>
 		</div>
 	</section>
-	
 	<footer id="footer"><!--Footer-->
 		<div align = "center" class="footer-top">
 			<br><h2  class="text-info"> DO YOU HAVE SOMETHING TO SELL<br></h2>
