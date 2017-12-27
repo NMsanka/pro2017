@@ -12,7 +12,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SignUp</title>
+<title>Reset Password</title>
 <link href="css/bootstrap1.min.css" rel="stylesheet" type="text/css" />
 <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
 <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -29,9 +29,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-4">
-						<div class="logo pull-left">
-							<br><a href="index.html"><img height = "50px" src="images/home/logo.jpg" alt="" /></a>
-						</div>
+						<h1><span style="color:orange">Y</span>anna gaman.lk</h1>
 				   
 					</div>
 					<div class="col-sm-8">
@@ -39,7 +37,7 @@
 							<ul class="nav navbar-nav">
 								
 												 													
-                                <li><br><button type="button" class="btn btn-info">Home</button></li>
+                                <li><br><button type="button" class="btn btn-info" onclick="location.href='index.html'">Home</button></li>
 								
 							</ul>
 						</div>

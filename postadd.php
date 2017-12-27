@@ -1,11 +1,11 @@
 <!doctype html>
 <?php
  session_start();
-/*if(!$_SESSION['username'])  
+if(!$_SESSION['username'])  
 {  
   
     header("Location: login.php");//redirect to login page to secure the welcome page without login access.  
-}  */
+} 
 //error_reporting(E_ERROR | E_PARSE);
 ?>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![ENDif]-->
@@ -18,7 +18,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>POST ADD</title>
+<title>Post Add</title>
 <link href="css/bootstrap1.min.css" rel="stylesheet" type="text/css" />
 <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
 <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -161,7 +161,6 @@ function preview_images()
 </head>
 
 <body>
-
 <header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
 			<div class="container">
@@ -183,13 +182,9 @@ function preview_images()
 		<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-4">
-                       
-					 
+					<div class="col-sm-4">					 
 									<h1><span style="color:orange">Y</span>anna gaman.lk</h1>
-									
-						
-				   
+										   
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
@@ -197,14 +192,10 @@ function preview_images()
 								<!--<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>-->
-								<li> <form class="form-inline" action="">
-                                                                                 
-                                          <input type="email" class="form-control" id="search" placeholder="Search" name="search">
-                                    </form>
-                                </li>
-								 <li><button type="button" class="btn btn-default">GO</button></li>
-   
-								<li>  <button type="button" class="btn btn-success">Post Your Add</button></li>
+								<li><h4 style="color:blue">Welcome <?php echo $_SESSION['username']?></h4></li>	
+								    
+								<li>  <button type="button" class="btn btn-success" onclick="location.href='indexlogin.php';">Home</button></li>
+								<li> <button type="button" class="btn btn-warning" onclick="location.href='logout.php';">Logout</button></li>
 								
 								
 							</ul>
@@ -379,7 +370,7 @@ function preview_images()
 <?php
         include('dbconnection.php');                
            if(isset($_POST['submit'])){
-                $_POST['catagory'];
+                $catagory = $_POST['catagory'];
                 $uname = $_SESSION['username'];
                 $brand = $_POST['brand'];
                 $model = $_POST['model'];
@@ -405,7 +396,7 @@ function preview_images()
                $today = date('Y-m-d'); 
                
                
-$query = "INSERT INTO advertisement VALUES(NULL,$id,'$brand','$model','$model_year','$condition','$mileage','$transmission','$fuel_type', '$capacity','$discription','$price','$phone','$district','$location','$today')";
+$query = "INSERT INTO advertisement VALUES(NULL,$id,'$catagory','$brand','$model','$model_year','$condition','$mileage','$transmission','$fuel_type', '$capacity','$discription','$price','$phone','$district','$location','$today')";
    
 $run_query = mysqli_query($connection,$query);
                
@@ -440,11 +431,10 @@ if($run_query){
     
     
 
-    
     <footer id="footer"><!--Footer-->
 		<div align = "center" class="footer-top">
 			<br><h2  class="text-info"> DO YOU HAVE SOMETHING TO SELL<br></h2>
-			 <button type="button" class="btn btn-success">Post Your Add</button>
+			 <button type="button" class="btn btn-success" onclick="location.href='postadd.php'">Post Your Add</button>
             
 		</div><br>
 		
@@ -465,31 +455,31 @@ if($run_query){
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>Quock Shop</h2>
+							<h2>Popular Search</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">T-Shirt</a></li>
-								<li><a href="#">Mens</a></li>
-								<li><a href="#">Womens</a></li>
-								<li><a href="#">Gift Cards</a></li>
-								<li><a href="#">Shoes</a></li>
+								<li><a href="#">Cars</a></li>
+								<li><a href="#">Motor Bikes</a></li>
+								<li><a href="#">Vans</a></li>
+								<li><a href="#">Busses Cards</a></li>
+								<li><a href="#">Lorries</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>Policies</h2>
+							<h2>Social</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Terms of Use</a></li>
-								<li><a href="#">Privecy Policy</a></li>
-								<li><a href="#">Refund Policy</a></li>
-								<li><a href="#">Billing System</a></li>
-								<li><a href="#">Ticket System</a></li>
+								<li><a href="#">Blog</a></li>
+								<li><a href="#">Facebook</a></li>
+								<li><a href="#">Twitter</a></li>
+								<li><a href="#">Youtube</a></li>
+								<li><a href="#">Google+</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>About Shopper</h2>
+							<h2>About site</h2>
 							<ul class="nav nav-pills nav-stacked">
 								<li><a href="#">Company Information</a></li>
 								<li><a href="#">Careers</a></li>
@@ -501,7 +491,7 @@ if($run_query){
 					</div>
 					<div class="col-sm-3 col-sm-offset-1">
 						<div class="single-widget">
-							<h2>About Shopper</h2>
+							<h2>About YannaGaman.lk</h2>
 							<form action="#" class="searchform">
 								<input type="text" placeholder="Your email address" />
 								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
@@ -517,8 +507,8 @@ if($run_query){
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+					<p class="pull-left">Copyright © 2017 YannaGaman.lk All rights reserved.</p>
+					<p class="pull-right">Designed by <span><a target="_blank" href="">YannaGaman.lk</a></span></p>
 				</div>
 			</div>
 		</div>

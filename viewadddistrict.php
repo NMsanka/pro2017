@@ -17,7 +17,7 @@ error_reporting(E_ERROR | E_PARSE);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Brand New</title>
+   
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -78,7 +78,6 @@ error_reporting(E_ERROR | E_PARSE);
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								
 								<li>  <button type="button" class="btn btn-success" onclick="location.href='postadd.php';">Post Your Add</button></li>
 								<li><button type="button" class="btn btn-info" onclick="location.href='indexlogin.php'">Home</button></li>
 								
@@ -100,17 +99,8 @@ error_reporting(E_ERROR | E_PARSE);
 					<div class="left-sidebar">
 						<h2>Category</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                          
-                            <button class="btn btn-primary btn-block"  onclick="location.href='viewbrandcars.php';">Cars</button><br>
-                            <button class="btn btn-primary btn-block">Motor Bikes</button>
-                            <button class="btn btn-primary btn-block" onclick="location.href='viewbrandvans.php';">Vans</button><br>
-                            <button class="btn btn-primary btn-block">Busses</button>
-                            <button class="btn btn-primary btn-block">Lorries</button><br>
-                            <button class="btn btn-primary btn-block">Three Wheelers</button>
-                            <button class="btn btn-primary btn-block">Push Cycles</button><br>
-                            <button class="btn btn-primary btn-block">Tractors</button>
-                            <button class="btn btn-primary btn-block">Boats</button>
-							
+                            <button class="btn btn-primary btn-block"  onclick="location.href='indexlogin.php';">Back</button><br>
+                           
 						</div><!--/category-products-->
 					
 						
@@ -125,7 +115,7 @@ error_reporting(E_ERROR | E_PARSE);
 							<?php
     
                                 include 'dbconnection.php';
-                                $sqlquery = "SELECT * FROM advertisement WHERE vehicle_condition='Brand New' ORDER BY date DESC";
+                                $sqlquery = "SELECT * FROM advertisement WHERE district='Colombo' ORDER BY date DESC";
                                 
                                 $result = mysqli_query($connection,$sqlquery);
                                 $data = array();
@@ -135,13 +125,14 @@ error_reporting(E_ERROR | E_PARSE);
                                         $data[] = $row;
                                     }
                                 
-                                          $_SESSION['addnew1']= $data[0]['aid'];
-                                          $_SESSION['addnew2']= $data[1]['aid'];
-                                          $_SESSION['addnew3']= $data[2]['aid'];
-                                          $_SESSION['addnew4']= $data[3]['aid'];                          
-                                          $_SESSION['addnew5']= $data[4]['aid'];
-                                          $_SESSION['addnew6']= $data[5]['aid'];
-                                          $_SESSION['addnew7']= $data[6]['aid'];
+                                          $_SESSION['adddistrict1']= $data[0]['aid'];
+                                          $_SESSION['adddistrict2']= $data[1]['aid'];
+                                          $_SESSION['adddistrict3']= $data[2]['aid'];
+                                          $_SESSION['adddistrict4']= $data[3]['aid'];                          
+                                          $_SESSION['adddistrict5']= $data[4]['aid'];
+                                          $_SESSION['adddistrict6']= $data[5]['aid'];
+                                          $_SESSION['adddistrict7']= $data[6]['aid'];
+                                    
                                 
 $a = $data[0]['aid'];
                          
@@ -162,36 +153,38 @@ $sql3 = "SELECT * FROM img WHERE aid=$c";
   $row3 = mysqli_fetch_assoc($result3);
                                     
                                     
-                                    $d = $data[3]['aid'];
+$d = $data[3]['aid'];
                          
 $sql4 = "SELECT * FROM img WHERE aid=$d";
   $result4 = mysqli_query($connection,$sql4);
   $row4 = mysqli_fetch_assoc($result4);
                                     
-         $e = $data[4]['aid'];
+$e = $data[4]['aid'];
                          
 $sql5 = "SELECT * FROM img WHERE aid=$e";
   $result5 = mysqli_query($connection,$sql5);
   $row5 = mysqli_fetch_assoc($result5);
                                     
-                                    $f = $data[5]['aid'];
+$f = $data[5]['aid'];
                          
 $sql6 = "SELECT * FROM img WHERE aid=$f";
   $result6 = mysqli_query($connection,$sql6);
   $row6 = mysqli_fetch_assoc($result6);
                                     
-                                    $g = $data[6]['aid'];
+$g = $data[6]['aid'];
                          
 $sql7 = "SELECT * FROM img WHERE aid=$g";
   $result7 = mysqli_query($connection,$sql7);
   $row7 = mysqli_fetch_assoc($result7);
                                     
     
+  
+    
                             ?>
 						    <table class="table table-striped" border=1>
 						    <tr>
 						         <td>
-						             <a href="addnew1.php"> <table width="100%">
+						             <a href="adddistrict.php"> <table width="100%">
 						                <tr>
 						                    <td rowspan="5"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row1['image']).'" width = "300" height = "175">'; ?></td>
 						                </tr>
@@ -215,12 +208,12 @@ $sql7 = "SELECT * FROM img WHERE aid=$g";
 						    </tr>
 							<tr>
 						         <td>
-						             <a href="addnew2.php"> <table width="100%">
+						             <a href=""> <table width="100%">
 						                <tr>
 						                    <td rowspan="5"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row2['image']).'" width = "300" height = "175">'; ?></td>
 						                </tr>
 						                <tr>
-                                            <td width="100%"><h3>&nbsp;&nbsp;&nbsp;<?php echo $data[1]['brand']." ".$data[1]['model']." ".$data[1]['model_year'];?></h3></td>
+                                            <td width="100%"><h3>&nbsp;&nbsp;&nbsp;<?php echo $data[0]['brand']." ".$data[1]['model']." ".$data[1]['model_year'];?></h3></td>
 						                </tr>
 						                <tr>
 						                    <td><h4 style="color:grey">&nbsp;&nbsp;&nbsp;&nbsp;posted date : <?php echo $data[1]['date']; ?></h4></td>
@@ -335,7 +328,7 @@ $sql7 = "SELECT * FROM img WHERE aid=$g";
 						    </tr>
 						    <tr>
 						           <td>
-						             <a href="addnew3.php"> <table width="100%">
+						             <a href=""> <table width="100%">
 						                <tr>
 						                    <td rowspan="5"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row7['image']).'" width = "300" height = "175">'; ?></td>
 						                </tr>
@@ -453,7 +446,6 @@ $sql7 = "SELECT * FROM img WHERE aid=$g";
 		</div>
 		
 	</footer><!--/Footer-->
-	
 
   
     <script src="js/jquery.js"></script>

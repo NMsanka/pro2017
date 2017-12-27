@@ -7,6 +7,7 @@ if(!$_SESSION['username'])
   
     header("Location: login.php");//redirect to login page to secure the welcome page without login access.  
 }  
+error_reporting(E_ERROR | E_PARSE);
 ?>
 <!DOCTYPE html>
 
@@ -16,7 +17,7 @@ if(!$_SESSION['username'])
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
+    <title>View Add</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -71,24 +72,17 @@ if(!$_SESSION['username'])
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-4">
-						<div class="logo pull-left">
-							<a href="index.html"><img height = "50px" src="images/home/logo.jpg" alt="" /></a>
-						</div>
+						<h1><span style="color:orange">Y</span>anna gaman.lk</h1>
 				   
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								
-								<li> <form class="form-inline" action="">
-                                                                                 
-                                          <input type="email" class="form-control" id="search" placeholder="Search" name="search">
-                                    </form>
-                                </li>
-								 <li><button type="button" class="btn btn-default">GO</button></li>
-   
+								                            								    
 								<li>  <button type="button" class="btn btn-success" onclick="location.href='postadd.php';">Post Your Add</button></li>
-								<li><h4 style="color:blue">Welcome <?php echo $_SESSION['username']?></h4></li>
+								<li><button type="button" class="btn btn-info" onclick="location.href='indexlogin.php'">Home</button></li>
+								
 								<li> <button type="button" class="btn btn-warning" onclick="location.href='logout.php';">Logout</button></li>
 								
 							</ul>
@@ -107,8 +101,8 @@ if(!$_SESSION['username'])
 					<div class="left-sidebar">
 						<h2>Category</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                            <button class="btn btn-primary btn-block" onclick="location.href='viewbrandnew.php';">Brand New Vehicles</button><br>
-                            <button class="btn btn-primary btn-block">Used Vehicles</button>
+                            <button class="btn btn-primary btn-block"  onclick="location.href='viewbrandnew.php';">Brand New Vehicles</button><br>
+                            <button class="btn btn-primary btn-block"  onclick="location.href='viewused.php';">Used Vehicles</button>
 							
 						</div><!--/category-products-->
 					
@@ -124,7 +118,7 @@ if(!$_SESSION['username'])
 							<?php
     
                                 include 'dbconnection.php';
-                                $sqlquery = "SELECT * FROM advertisement ORDER BY date";
+                                $sqlquery = "SELECT * FROM advertisement ORDER BY date DESC";
                                 
                                 $result = mysqli_query($connection,$sqlquery);
                                 $data = array();
@@ -141,7 +135,51 @@ if(!$_SESSION['username'])
                                           $_SESSION['add5']= $data[4]['aid'];
                                           $_SESSION['add6']= $data[5]['aid'];
                                           $_SESSION['add7']= $data[6]['aid'];
+                                    
                                 
+    $a = $data[0]['aid'];
+                         
+$sql1 = "SELECT * FROM img WHERE aid=$a";
+  $result1 = mysqli_query($connection,$sql1);
+  $row1 = mysqli_fetch_assoc($result1);
+                                    
+ $b = $data[1]['aid'];
+                         
+ $sql2 = "SELECT * FROM img WHERE aid=$b";
+  $result2 = mysqli_query($connection,$sql2);
+  $row2 = mysqli_fetch_assoc($result2);
+                                    
+$c = $data[2]['aid'];
+                         
+$sql3 = "SELECT * FROM img WHERE aid=$c";
+  $result3 = mysqli_query($connection,$sql3);
+  $row3 = mysqli_fetch_assoc($result3);
+                                    
+                                    
+                                    $d = $data[3]['aid'];
+                         
+$sql4 = "SELECT * FROM img WHERE aid=$d";
+  $result4 = mysqli_query($connection,$sql4);
+  $row4 = mysqli_fetch_assoc($result4);
+                                    
+         $e = $data[4]['aid'];
+                         
+$sql5 = "SELECT * FROM img WHERE aid=$e";
+  $result5 = mysqli_query($connection,$sql5);
+  $row5 = mysqli_fetch_assoc($result5);
+                                    
+                                    $f = $data[5]['aid'];
+                         
+$sql6 = "SELECT * FROM img WHERE aid=$f";
+  $result6 = mysqli_query($connection,$sql6);
+  $row6 = mysqli_fetch_assoc($result6);
+                                    
+                                    $g = $data[6]['aid'];
+                         
+$sql7 = "SELECT * FROM img WHERE aid=$g";
+  $result7 = mysqli_query($connection,$sql7);
+  $row7 = mysqli_fetch_assoc($result7);
+                                    
     
   
     
@@ -151,7 +189,7 @@ if(!$_SESSION['username'])
 						         <td>
 						             <a href="add1.php"> <table width="100%">
 						                <tr>
-						                    <td rowspan="5"><img src="images/vehicle/aqua.jpg" width="300" height="175" /></td>
+						                    <td rowspan="5"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row1['image']).'" width = "300" height = "175">'; ?></td>
 						                </tr>
 						                <tr>
                                             <td width="100%"><h3>&nbsp;&nbsp;&nbsp;<?php echo $data[0]['brand']." ".$data[0]['model']." ".$data[0]['model_year'];?></h3></td>
@@ -175,7 +213,7 @@ if(!$_SESSION['username'])
 						         <td>
 						             <a href="add2.php"> <table width="100%">
 						                <tr>
-						                    <td rowspan="5"><img src="images/vehicle/aqua.jpg" width="300" height="175" /></td>
+						                    <td rowspan="5"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row2['image']).'" width = "300" height = "175">'; ?></td>
 						                </tr>
 						                <tr>
                                             <td width="100%"><h3>&nbsp;&nbsp;&nbsp;<?php echo $data[0]['brand']." ".$data[1]['model']." ".$data[1]['model_year'];?></h3></td>
@@ -199,7 +237,7 @@ if(!$_SESSION['username'])
 						           <td>
 						             <a href=""> <table width="100%">
 						                <tr>
-						                    <td rowspan="5"><img src="images/vehicle/aqua.jpg" width="300" height="175" /></td>
+						                    <td rowspan="5"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row3['image']).'" width = "300" height = "175">'; ?></td>
 						                </tr>
 						                <tr>
                                             <td width="100%"><h3>&nbsp;&nbsp;&nbsp;<?php echo $data[2]['brand']." ".$data[2]['model']." ".$data[2]['model_year'];?></h3></td>
@@ -223,7 +261,7 @@ if(!$_SESSION['username'])
 						          <td>
 						             <a href=""> <table width="100%">
 						                <tr>
-						                    <td rowspan="5"><img src="images/vehicle/aqua.jpg" width="300" height="175" /></td>
+						                    <td rowspan="5"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row4['image']).'" width = "300" height = "175">'; ?></td>
 						                </tr>
 						                <tr>
                                             <td width="100%"><h3>&nbsp;&nbsp;&nbsp;<?php echo $data[3]['brand']." ".$data[3]['model']." ".$data[3]['model_year'];?></h3></td>
@@ -247,7 +285,7 @@ if(!$_SESSION['username'])
 						            <td>
 						             <a href=""> <table width="100%">
 						                <tr>
-						                    <td rowspan="5"><img src="images/vehicle/aqua.jpg" width="300" height="175" /></td>
+						                    <td rowspan="5"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row5['image']).'" width = "300" height = "175">'; ?></td>
 						                </tr>
 						                <tr>
                                             <td width="100%"><h3>&nbsp;&nbsp;&nbsp;<?php echo $data[4]['brand']." ".$data[4]['model']." ".$data[4]['model_year'];?></h3></td>
@@ -271,7 +309,7 @@ if(!$_SESSION['username'])
 						           <td>
 						             <a href=""> <table width="100%">
 						                <tr>
-						                    <td rowspan="5"><img src="images/vehicle/aqua.jpg" width="300" height="175" /></td>
+						                    <td rowspan="5"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row6['image']).'" width = "300" height = "175">'; ?></td>
 						                </tr>
 						                <tr>
                                             <td width="100%"><h3>&nbsp;&nbsp;&nbsp;<?php echo $data[5]['brand']." ".$data[5]['model']." ".$data[5]['model_year'];?></h3></td>
@@ -295,7 +333,7 @@ if(!$_SESSION['username'])
 						           <td>
 						             <a href="add3.php"> <table width="100%">
 						                <tr>
-						                    <td rowspan="5"><img src="images/vehicle/aqua.jpg" width="300" height="175" /></td>
+						                    <td rowspan="5"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row7['image']).'" width = "300" height = "175">'; ?></td>
 						                </tr>
 						                <tr>
                                             <td width="100%"><h3>&nbsp;&nbsp;&nbsp;<?php echo $data[6]['brand']." ".$data[6]['model']." ".$data[6]['model_year'];?></h3></td>
@@ -331,7 +369,7 @@ if(!$_SESSION['username'])
 	<footer id="footer"><!--Footer-->
 		<div align = "center" class="footer-top">
 			<br><h2  class="text-info"> DO YOU HAVE SOMETHING TO SELL<br></h2>
-			 <button type="button" class="btn btn-success">Post Your Add</button>
+			 <button type="button" class="btn btn-success" onclick="location.href='postadd.php'">Post Your Add</button>
             
 		</div><br>
 		
@@ -352,31 +390,31 @@ if(!$_SESSION['username'])
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>Quock Shop</h2>
+							<h2>Popular Search</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">T-Shirt</a></li>
-								<li><a href="#">Mens</a></li>
-								<li><a href="#">Womens</a></li>
-								<li><a href="#">Gift Cards</a></li>
-								<li><a href="#">Shoes</a></li>
+								<li><a href="#">Cars</a></li>
+								<li><a href="#">Motor Bikes</a></li>
+								<li><a href="#">Vans</a></li>
+								<li><a href="#">Busses Cards</a></li>
+								<li><a href="#">Lorries</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>Policies</h2>
+							<h2>Social</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Terms of Use</a></li>
-								<li><a href="#">Privecy Policy</a></li>
-								<li><a href="#">Refund Policy</a></li>
-								<li><a href="#">Billing System</a></li>
-								<li><a href="#">Ticket System</a></li>
+								<li><a href="#">Blog</a></li>
+								<li><a href="#">Facebook</a></li>
+								<li><a href="#">Twitter</a></li>
+								<li><a href="#">Youtube</a></li>
+								<li><a href="#">Google+</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>About Shopper</h2>
+							<h2>About site</h2>
 							<ul class="nav nav-pills nav-stacked">
 								<li><a href="#">Company Information</a></li>
 								<li><a href="#">Careers</a></li>
@@ -388,7 +426,7 @@ if(!$_SESSION['username'])
 					</div>
 					<div class="col-sm-3 col-sm-offset-1">
 						<div class="single-widget">
-							<h2>About Shopper</h2>
+							<h2>About YannaGaman.lk</h2>
 							<form action="#" class="searchform">
 								<input type="text" placeholder="Your email address" />
 								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
@@ -404,8 +442,8 @@ if(!$_SESSION['username'])
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+					<p class="pull-left">Copyright © 2017 YannaGaman.lk All rights reserved.</p>
+					<p class="pull-right">Designed by <span><a target="_blank" href="">YannaGaman.lk</a></span></p>
 				</div>
 			</div>
 		</div>

@@ -21,7 +21,7 @@ error_reporting(E_ERROR | E_PARSE);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
+  
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -100,15 +100,15 @@ error_reporting(E_ERROR | E_PARSE);
    <?php
   
   include("dbconnection.php");
-$add1 = $_SESSION['add1'];
-  $sql = "SELECT * FROM img WHERE aid=$add1";
+$addnew1 = $_SESSION['addnew1'];
+  $sql = "SELECT * FROM img WHERE aid=$addnew1";
   $result = mysqli_query($connection,$sql);
   while($row = mysqli_fetch_assoc($result)){
       echo '<img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" width = "400" height = "250">';
       
   }
     
-    $sqlquery = "SELECT * FROM advertisement ORDER BY date DESC";
+    $sqlquery = "SELECT * FROM advertisement WHERE vehicle_condition='Brand New' ORDER BY date DESC";
                                 
                                 $result = mysqli_query($connection,$sqlquery);
                                 $data = array();

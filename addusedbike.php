@@ -5,7 +5,7 @@ if(!$_SESSION['username'])
 {  
   
     header("Location: login.php");//redirect to login page to secure the welcome page without login access.  
-} 
+}  
 error_reporting(E_ERROR | E_PARSE);
 ?>
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ error_reporting(E_ERROR | E_PARSE);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -82,7 +82,6 @@ error_reporting(E_ERROR | E_PARSE);
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								
 								<li>  <button type="button" class="btn btn-success" onclick="location.href='postadd.php';">Post Your Add</button></li>
 								<li><button type="button" class="btn btn-info" onclick="location.href='indexlogin.php'">Home</button></li>
 								
@@ -100,15 +99,15 @@ error_reporting(E_ERROR | E_PARSE);
    <?php
   
   include("dbconnection.php");
-$add1 = $_SESSION['add1'];
-  $sql = "SELECT * FROM img WHERE aid=$add1";
+$addusedbike1 = $_SESSION['addusedbike1'];
+  $sql = "SELECT * FROM img WHERE aid=$addusedbike1";
   $result = mysqli_query($connection,$sql);
   while($row = mysqli_fetch_assoc($result)){
       echo '<img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" width = "400" height = "250">';
       
   }
     
-    $sqlquery = "SELECT * FROM advertisement ORDER BY date DESC";
+    $sqlquery = "SELECT * FROM advertisement WHERE vehicle_condition='Used' AND catagory='Motor Bikes' ORDER BY date DESC";
                                 
                                 $result = mysqli_query($connection,$sqlquery);
                                 $data = array();

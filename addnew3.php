@@ -21,7 +21,7 @@ error_reporting(E_ERROR | E_PARSE);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
+   
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -87,7 +87,6 @@ error_reporting(E_ERROR | E_PARSE);
 								<li><button type="button" class="btn btn-info" onclick="location.href='indexlogin.php'">Home</button></li>
 								
 								<li> <button type="button" class="btn btn-warning" onclick="location.href='logout.php';">Logout</button></li>
-								
 							</ul>
 						</div>
 					</div>
@@ -100,15 +99,15 @@ error_reporting(E_ERROR | E_PARSE);
    <?php
   
   include("dbconnection.php");
-$add1 = $_SESSION['add1'];
-  $sql = "SELECT * FROM img WHERE aid=$add1";
+$addnew7 = $_SESSION['addnew7'];
+  $sql = "SELECT * FROM img WHERE aid=$addnew7";
   $result = mysqli_query($connection,$sql);
   while($row = mysqli_fetch_assoc($result)){
       echo '<img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" width = "400" height = "250">';
       
   }
     
-    $sqlquery = "SELECT * FROM advertisement ORDER BY date DESC";
+    $sqlquery = "SELECT * FROM advertisement WHERE vehicle_condition='Brand New' ORDER BY date DESC";
                                 
                                 $result = mysqli_query($connection,$sqlquery);
                                 $data = array();
@@ -123,14 +122,14 @@ $add1 = $_SESSION['add1'];
 ?>
     <table class="table table-striped" align="center" border = 1>
         <tr>
-            <td><?php echo "Price Rs : ".$data[0]['price']?></td>
-            <td rowspan="4"><?php echo "Brand : ".$data[0]['brand'].nl2br("\n\n")."Model Year : ".$data[0]['model_year'].nl2br("\n\n")."Model: ".$data[0]['model'].nl2br("\n\n")."Condition : ".$data[0]['vehicle_condition'].nl2br("\n\n")."Mileage : ".$data[0]['Mileage'].nl2br("\n\n")."Model Year : ".$data[0]['model_year'].nl2br("\n\n")."Transmission : ".$data[0]['transmission'].nl2br("\n\n")."Fual Type : ".$data[0]['fuel_type'].nl2br("\n\n")."Eng.Capacity : ".$data[0]['engine_capacity'].nl2br("\n\n")."District : ".$data[0]['district'].nl2br("\n\n")."location : ".$data[0]['location'].nl2br("\n\n")."posted date : ".$data[0]['date']?></td>
+            <td><?php echo "Price Rs : ".$data[6]['price']?></td>
+            <td rowspan="4"><?php echo "Brand : ".$data[6]['brand'].nl2br("\n\n")."Model Year : ".$data[6]['model_year'].nl2br("\n\n")."Model: ".$data[6]['model'].nl2br("\n\n")."Condition : ".$data[6]['vehicle_condition'].nl2br("\n\n")."Mileage : ".$data[6]['Mileage'].nl2br("\n\n")."Model Year : ".$data[6]['model_year'].nl2br("\n\n")."Transmission : ".$data[6]['transmission'].nl2br("\n\n")."Fual Type : ".$data[6]['fuel_type'].nl2br("\n\n")."Eng.Capacity : ".$data[6]['engine_capacity'].nl2br("\n\n")."District : ".$data[6]['district'].nl2br("\n\n")."location : ".$data[6]['location'].nl2br("\n\n")."posted date : ".$data[6]['date']?></td>
         </tr>
         <tr>
-            <td><?php echo "Discription : <br>".$data[0]['discription']?></td>
+            <td><?php echo "Discription : <br>".$data[6]['discription']?></td>
         </tr>
         <tr>
-            <td><?php echo "Contact Number : <br>".$data[0]['phone']?></td>
+            <td><?php echo "Contact Number : <br>".$data[6]['phone']?></td>
         </tr>
     </table>
     

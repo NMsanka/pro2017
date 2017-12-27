@@ -1,7 +1,4 @@
 <?php
-session_start();
-
-
   
   include("dbconnection.php");
   $sql = "SELECT * FROM img";

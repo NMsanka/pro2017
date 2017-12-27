@@ -50,9 +50,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-4">
-						<div class="logo pull-left">
-							<a href="index.html"><img height = "50px" src="images/home/logo.jpg" alt="" /></a>
-						</div>
+						<h1><span style="color:orange">Y</span>anna gaman.lk</h1>
 				   
 					</div>
 					<div class="col-sm-8">
@@ -145,7 +143,7 @@
 	<footer id="footer"><!--Footer-->
 		<div align = "center" class="footer-top">
 			<br><h2  class="text-info"> DO YOU HAVE SOMETHING TO SELL<br></h2>
-			 <button type="button" class="btn btn-success">Post Your Add</button>
+			 <button type="button" class="btn btn-success" onclick="location.href='postadd.php'">Post Your Add</button>
             
 		</div><br>
 		
@@ -166,31 +164,31 @@
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>Quock Shop</h2>
+							<h2>Popular Search</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">T-Shirt</a></li>
-								<li><a href="#">Mens</a></li>
-								<li><a href="#">Womens</a></li>
-								<li><a href="#">Gift Cards</a></li>
-								<li><a href="#">Shoes</a></li>
+								<li><a href="#">Cars</a></li>
+								<li><a href="#">Motor Bikes</a></li>
+								<li><a href="#">Vans</a></li>
+								<li><a href="#">Busses Cards</a></li>
+								<li><a href="#">Lorries</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>Policies</h2>
+							<h2>Social</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Terms of Use</a></li>
-								<li><a href="#">Privecy Policy</a></li>
-								<li><a href="#">Refund Policy</a></li>
-								<li><a href="#">Billing System</a></li>
-								<li><a href="#">Ticket System</a></li>
+								<li><a href="#">Blog</a></li>
+								<li><a href="#">Facebook</a></li>
+								<li><a href="#">Twitter</a></li>
+								<li><a href="#">Youtube</a></li>
+								<li><a href="#">Google+</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>About Shopper</h2>
+							<h2>About site</h2>
 							<ul class="nav nav-pills nav-stacked">
 								<li><a href="#">Company Information</a></li>
 								<li><a href="#">Careers</a></li>
@@ -202,7 +200,7 @@
 					</div>
 					<div class="col-sm-3 col-sm-offset-1">
 						<div class="single-widget">
-							<h2>About Shopper</h2>
+							<h2>About YannaGaman.lk</h2>
 							<form action="#" class="searchform">
 								<input type="text" placeholder="Your email address" />
 								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
@@ -218,14 +216,13 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+					<p class="pull-left">Copyright © 2017 YannaGaman.lk All rights reserved.</p>
+					<p class="pull-right">Designed by <span><a target="_blank" href="">YannaGaman.lk</a></span></p>
 				</div>
 			</div>
 		</div>
 		
 	</footer><!--/Footer-->
-	
 
   
     <script src="js/jquery.js"></script>

@@ -17,7 +17,7 @@ error_reporting(E_ERROR | E_PARSE);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Brand New</title>
+    <title>Used</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -101,9 +101,9 @@ error_reporting(E_ERROR | E_PARSE);
 						<h2>Category</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
                           
-                            <button class="btn btn-primary btn-block"  onclick="location.href='viewbrandcars.php';">Cars</button><br>
-                            <button class="btn btn-primary btn-block">Motor Bikes</button>
-                            <button class="btn btn-primary btn-block" onclick="location.href='viewbrandvans.php';">Vans</button><br>
+                            <button class="btn btn-primary btn-block" onclick="location.href='viewusedcars.php';">Cars</button><br>
+                            <button class="btn btn-primary btn-block" onclick="location.href='viewusedbike.php';">Motor Bikes</button>
+                            <button class="btn btn-primary btn-block">Vans</button><br>
                             <button class="btn btn-primary btn-block">Busses</button>
                             <button class="btn btn-primary btn-block">Lorries</button><br>
                             <button class="btn btn-primary btn-block">Three Wheelers</button>
@@ -125,7 +125,7 @@ error_reporting(E_ERROR | E_PARSE);
 							<?php
     
                                 include 'dbconnection.php';
-                                $sqlquery = "SELECT * FROM advertisement WHERE vehicle_condition='Brand New' ORDER BY date DESC";
+                                $sqlquery = "SELECT * FROM advertisement WHERE vehicle_condition='Used' ORDER BY date DESC";
                                 
                                 $result = mysqli_query($connection,$sqlquery);
                                 $data = array();
@@ -135,15 +135,15 @@ error_reporting(E_ERROR | E_PARSE);
                                         $data[] = $row;
                                     }
                                 
-                                          $_SESSION['addnew1']= $data[0]['aid'];
-                                          $_SESSION['addnew2']= $data[1]['aid'];
-                                          $_SESSION['addnew3']= $data[2]['aid'];
-                                          $_SESSION['addnew4']= $data[3]['aid'];                          
-                                          $_SESSION['addnew5']= $data[4]['aid'];
-                                          $_SESSION['addnew6']= $data[5]['aid'];
-                                          $_SESSION['addnew7']= $data[6]['aid'];
-                                
-$a = $data[0]['aid'];
+                                          $_SESSION['addused1']= $data[0]['aid'];
+                                          $_SESSION['addused2']= $data[1]['aid'];
+                                          $_SESSION['addused3']= $data[2]['aid'];
+                                        $_SESSION['addused4']= $data[3]['aid'];
+                                        $_SESSION['addused5']= $data[4]['aid'];
+                                        $_SESSION['addused6']= $data[5]['aid'];
+                                        $_SESSION['addused7']= $data[6]['aid'];
+                                          
+                          $a = $data[0]['aid'];
                          
 $sql1 = "SELECT * FROM img WHERE aid=$a";
   $result1 = mysqli_query($connection,$sql1);
@@ -185,13 +185,15 @@ $sql6 = "SELECT * FROM img WHERE aid=$f";
 $sql7 = "SELECT * FROM img WHERE aid=$g";
   $result7 = mysqli_query($connection,$sql7);
   $row7 = mysqli_fetch_assoc($result7);
-                                    
+                                          
+    
+  
     
                             ?>
 						    <table class="table table-striped" border=1>
 						    <tr>
 						         <td>
-						             <a href="addnew1.php"> <table width="100%">
+						             <a href="addused1.php"> <table width="100%">
 						                <tr>
 						                    <td rowspan="5"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row1['image']).'" width = "300" height = "175">'; ?></td>
 						                </tr>
@@ -215,7 +217,7 @@ $sql7 = "SELECT * FROM img WHERE aid=$g";
 						    </tr>
 							<tr>
 						         <td>
-						             <a href="addnew2.php"> <table width="100%">
+						             <a href="addused2.php"> <table width="100%">
 						                <tr>
 						                    <td rowspan="5"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row2['image']).'" width = "300" height = "175">'; ?></td>
 						                </tr>
@@ -239,7 +241,7 @@ $sql7 = "SELECT * FROM img WHERE aid=$g";
 						    </tr>
 						    <tr>
 						           <td>
-						             <a href=""> <table width="100%">
+						             <a href="addused3.php"> <table width="100%">
 						                <tr>
 						                    <td rowspan="5"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row3['image']).'" width = "300" height = "175">'; ?></td>
 						                </tr>
@@ -335,7 +337,7 @@ $sql7 = "SELECT * FROM img WHERE aid=$g";
 						    </tr>
 						    <tr>
 						           <td>
-						             <a href="addnew3.php"> <table width="100%">
+						             <a href=""> <table width="100%">
 						                <tr>
 						                    <td rowspan="5"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row7['image']).'" width = "300" height = "175">'; ?></td>
 						                </tr>
@@ -453,7 +455,6 @@ $sql7 = "SELECT * FROM img WHERE aid=$g";
 		</div>
 		
 	</footer><!--/Footer-->
-	
 
   
     <script src="js/jquery.js"></script>

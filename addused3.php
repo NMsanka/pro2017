@@ -5,7 +5,7 @@ if(!$_SESSION['username'])
 {  
   
     header("Location: login.php");//redirect to login page to secure the welcome page without login access.  
-} 
+}  
 error_reporting(E_ERROR | E_PARSE);
 ?>
 <!DOCTYPE html>
@@ -82,7 +82,7 @@ error_reporting(E_ERROR | E_PARSE);
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								
+							
 								<li>  <button type="button" class="btn btn-success" onclick="location.href='postadd.php';">Post Your Add</button></li>
 								<li><button type="button" class="btn btn-info" onclick="location.href='indexlogin.php'">Home</button></li>
 								
@@ -100,15 +100,15 @@ error_reporting(E_ERROR | E_PARSE);
    <?php
   
   include("dbconnection.php");
-$add1 = $_SESSION['add1'];
-  $sql = "SELECT * FROM img WHERE aid=$add1";
+$addused3 = $_SESSION['addused3'];
+  $sql = "SELECT * FROM img WHERE aid=$addused3";
   $result = mysqli_query($connection,$sql);
   while($row = mysqli_fetch_assoc($result)){
       echo '<img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" width = "400" height = "250">';
       
   }
     
-    $sqlquery = "SELECT * FROM advertisement ORDER BY date DESC";
+    $sqlquery = "SELECT * FROM advertisement WHERE vehicle_condition='Used' ORDER BY date DESC";
                                 
                                 $result = mysqli_query($connection,$sqlquery);
                                 $data = array();
@@ -123,14 +123,14 @@ $add1 = $_SESSION['add1'];
 ?>
     <table class="table table-striped" align="center" border = 1>
         <tr>
-            <td><?php echo "Price Rs : ".$data[0]['price']?></td>
-            <td rowspan="4"><?php echo "Brand : ".$data[0]['brand'].nl2br("\n\n")."Model Year : ".$data[0]['model_year'].nl2br("\n\n")."Model: ".$data[0]['model'].nl2br("\n\n")."Condition : ".$data[0]['vehicle_condition'].nl2br("\n\n")."Mileage : ".$data[0]['Mileage'].nl2br("\n\n")."Model Year : ".$data[0]['model_year'].nl2br("\n\n")."Transmission : ".$data[0]['transmission'].nl2br("\n\n")."Fual Type : ".$data[0]['fuel_type'].nl2br("\n\n")."Eng.Capacity : ".$data[0]['engine_capacity'].nl2br("\n\n")."District : ".$data[0]['district'].nl2br("\n\n")."location : ".$data[0]['location'].nl2br("\n\n")."posted date : ".$data[0]['date']?></td>
+            <td><?php echo "Price Rs : ".$data[2]['price']?></td>
+            <td rowspan="4"><?php echo "Brand : ".$data[2]['brand'].nl2br("\n\n")."Model Year : ".$data[2]['model_year'].nl2br("\n\n")."Model: ".$data[2]['model'].nl2br("\n\n")."Condition : ".$data[2]['vehicle_condition'].nl2br("\n\n")."Mileage : ".$data[2]['Mileage'].nl2br("\n\n")."Model Year : ".$data[2]['model_year'].nl2br("\n\n")."Transmission : ".$data[2]['transmission'].nl2br("\n\n")."Fual Type : ".$data[2]['fuel_type'].nl2br("\n\n")."Eng.Capacity : ".$data[2]['engine_capacity'].nl2br("\n\n")."District : ".$data[2]['district'].nl2br("\n\n")."location : ".$data[2]['location'].nl2br("\n\n")."posted date : ".$data[2]['date']?></td>
         </tr>
         <tr>
-            <td><?php echo "Discription : <br>".$data[0]['discription']?></td>
+            <td><?php echo "Discription : <br>".$data[2]['discription']?></td>
         </tr>
         <tr>
-            <td><?php echo "Contact Number : <br>".$data[0]['phone']?></td>
+            <td><?php echo "Contact Number : <br>".$data[2]['phone']?></td>
         </tr>
     </table>
     

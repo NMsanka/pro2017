@@ -5,7 +5,8 @@ if(!$_SESSION['username'])
 {  
   
     header("Location: login.php");//redirect to login page to secure the welcome page without login access.  
-}  
+} 
+error_reporting(E_ERROR | E_PARSE);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +21,7 @@ if(!$_SESSION['username'])
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
+   
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -75,24 +76,15 @@ if(!$_SESSION['username'])
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-4">
-						<div class="logo pull-left">
-							<a href="index.html"><img height = "50px" src="images/home/logo.jpg" alt="" /></a>
-						</div>
+						<h1><span style="color:orange">Y</span>anna gaman.lk</h1>
 				   
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								
-								<li> <form class="form-inline" action="">
-                                                                                 
-                                          <input type="email" class="form-control" id="search" placeholder="Search" name="search">
-                                    </form>
-                                </li>
-								 <li><button type="button" class="btn btn-default">GO</button></li>
-   
 								<li>  <button type="button" class="btn btn-success" onclick="location.href='postadd.php';">Post Your Add</button></li>
-								<li><h4 style="color:blue">Welcome <?php echo $_SESSION['username']?></h4></li>
+								<li><button type="button" class="btn btn-info" onclick="location.href='indexlogin.php'">Home</button></li>
+								
 								<li> <button type="button" class="btn btn-warning" onclick="location.href='logout.php';">Logout</button></li>
 								
 							</ul>
@@ -111,11 +103,11 @@ $add2 = $_SESSION['add2'];
   $sql = "SELECT * FROM img WHERE aid=$add2";
   $result = mysqli_query($connection,$sql);
   while($row = mysqli_fetch_assoc($result)){
-      echo '<img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" width = "250" height = "250">';
+      echo '<img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" width = "400" height = "250">';
       
   }
     
-    $sqlquery = "SELECT * FROM advertisement ORDER BY date";
+    $sqlquery = "SELECT * FROM advertisement ORDER BY date DESC";
                                 
                                 $result = mysqli_query($connection,$sqlquery);
                                 $data = array();
@@ -140,5 +132,89 @@ $add2 = $_SESSION['add2'];
             <td><?php echo "Contact Number : <br>".$data[1]['phone']?></td>
         </tr>
     </table>
+    
+    <footer id="footer"><!--Footer-->
+		<div align = "center" class="footer-top">
+			<br><h2  class="text-info"> DO YOU HAVE SOMETHING TO SELL<br></h2>
+			 <button type="button" class="btn btn-success" onclick="location.href='postadd.php'">Post Your Add</button>
+            
+		</div><br>
+		
+		<div class="footer-widget">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Service</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Online Help</a></li>
+								<li><a href="#">Contact Us</a></li>
+								<li><a href="#">Order Status</a></li>
+								<li><a href="#">Change Location</a></li>
+								<li><a href="#">FAQ’s</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Popular Search</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Cars</a></li>
+								<li><a href="#">Motor Bikes</a></li>
+								<li><a href="#">Vans</a></li>
+								<li><a href="#">Busses Cards</a></li>
+								<li><a href="#">Lorries</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>Social</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Blog</a></li>
+								<li><a href="#">Facebook</a></li>
+								<li><a href="#">Twitter</a></li>
+								<li><a href="#">Youtube</a></li>
+								<li><a href="#">Google+</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="single-widget">
+							<h2>About site</h2>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Company Information</a></li>
+								<li><a href="#">Careers</a></li>
+								<li><a href="#">Store Location</a></li>
+								<li><a href="#">Affillate Program</a></li>
+								<li><a href="#">Copyright</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-3 col-sm-offset-1">
+						<div class="single-widget">
+							<h2>About YannaGaman.lk</h2>
+							<form action="#" class="searchform">
+								<input type="text" placeholder="Your email address" />
+								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+								<p>Get the most recent updates from <br />our site and be updated your self...</p>
+							</form>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<p class="pull-left">Copyright © 2017 YannaGaman.lk All rights reserved.</p>
+					<p class="pull-right">Designed by <span><a target="_blank" href="">YannaGaman.lk</a></span></p>
+				</div>
+			</div>
+		</div>
+		
+	</footer><!--/Footer-->
 </body>
 </html>
